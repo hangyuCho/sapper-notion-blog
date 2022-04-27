@@ -1,22 +1,20 @@
-<script lang="ts">
-	import Nav from '../components/Nav.svelte';
+<script context="module" lang="ts">
+  export const databaseId = process.env.NOTION_DATABASE_ID;
 
-	export let segment: string;
 </script>
 
+<script lang="ts">
+  export let segment: string;
+  segment;
+</script>
+<div>
+  <slot />
+</div>
+
 <style>
-	main {
-		position: relative;
-		max-width: 56em;
-		background-color: white;
-		padding: 2em;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
+  div {
+    padding: 0 40px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
 </style>
-
-<Nav {segment}/>
-
-<main>
-	<slot></slot>
-</main>

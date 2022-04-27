@@ -10,8 +10,13 @@ import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
+import json from '@rollup/plugin-json';
+import dotenv from 'dotenv';
+dotenv.config();
 
 const mode = process.env.NODE_ENV;
+const notionToken = process.env.NOTION_TOKEN
+const notionDatabaseId = process.env.NOTION_DATABASE_ID
 const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
@@ -30,9 +35,12 @@ export default {
 				preventAssignment: true,
 				values:{
 					'process.browser': true,
-					'process.env.NODE_ENV': JSON.stringify(mode)
+					'process.env.NODE_ENV': JSON.stringify(mode),
+					'process.env.NOTION_TOKEN': JSON.stringify(notionToken),
+					'process.env.NOTION_DATABASE_ID': JSON.stringify(notionDatabaseId)
 				},
 			}),
+			json(),
 			svelte({
 				preprocess: sveltePreprocess({ sourceMap: dev }),
 				compilerOptions: {
@@ -85,9 +93,12 @@ export default {
 				preventAssignment: true,
 				values:{
 					'process.browser': false,
-					'process.env.NODE_ENV': JSON.stringify(mode)
+					'process.env.NODE_ENV': JSON.stringify(mode),
+					'process.env.NOTION_TOKEN': JSON.stringify(notionToken),
+					'process.env.NOTION_DATABASE_ID': JSON.stringify(notionDatabaseId)
 				},
 			}),
+			json(),
 			svelte({
 				preprocess: sveltePreprocess({ sourceMap: dev }),
 				compilerOptions: {
@@ -122,9 +133,12 @@ export default {
 				preventAssignment: true,
 				values:{
 					'process.browser': true,
-					'process.env.NODE_ENV': JSON.stringify(mode)
+					'process.env.NODE_ENV': JSON.stringify(mode),
+					'process.env.NOTION_TOKEN': JSON.stringify(notionToken),
+					'process.env.NOTION_DATABASE_ID': JSON.stringify(notionDatabaseId)
 				},
 			}),
+			json(),
 			commonjs(),
 			typescript({ sourceMap: dev }),
 			!dev && terser()
