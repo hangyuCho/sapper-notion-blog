@@ -1,20 +1,8 @@
 <script context="module" lang="ts">
 	import { Client } from '@notionhq/client';
 	import { getDatabase } from '../notion';
-	import type { QueryDatabaseResponse, GetDatabaseParameters } from '@notionhq/client/build/src/api-endpoints';
-	const objNotion: Client = new Client({ auth: process.env.NOTION_TOKEN });
-
-	//export async function preload() {
-		//const strDatabaseId = process.env.NOTION_DATABASE_ID;
-		//const option: GetDatabaseParameters =  {
-			//database_id: strDatabaseId,
-		//};
-		//const json: QueryDatabaseResponse = await objNotion.databases.query(option);
-		//return { json, slug: "" }
-	//}
 	export async function preload() {
-		const strDatabaseId = process.env.NOTION_DATABASE_ID;
-		const results: Object = getDatabase(strDatabaseId);
+		const results: Object = await getDatabase(process.env.NOTION_DATABASE_ID);
 		return { results, slug: "" }
 	}
 </script>
@@ -57,7 +45,7 @@ import Slug from "./[slug].svelte";
 				day: "2-digit",
 			})}`}</p>
 			<!-- svelte-ignore a11y-invalid-attribute -->
-			<a href="#">상세보기</a>
+			<a rel="external" href="{`/${item.id}`}">상세보기</a>
 			{/each}
 		</div>
 	</div>
