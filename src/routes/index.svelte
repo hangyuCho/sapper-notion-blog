@@ -1,50 +1,75 @@
-<script>
-	import successkid from 'images/successkid.jpg';
+<script context="module" lang="ts">
+	import { Client } from '@notionhq/client';
+	import { getDatabase } from '../notion';
+	export async function preload() {
+		const results: Object = await getDatabase(process.env.NOTION_DATABASE_ID);
+		return { results, slug: "" }
+	}
+</script>
+<script lang="ts">
+import Slug from "./[slug].svelte";
+
+	//export let meta: Object;
+	//const arrSlug = Object.values(meta);
+	export let results: Object;
+
 </script>
 
-<style>
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
-	}
-
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
-
-	figure {
-		margin: 0 0 1em 0;
-	}
-
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
-
-	p {
-		margin: 1em auto;
-	}
-
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
-	}
-</style>
-
 <svelte:head>
-	<title>Sapper project template</title>
+	<title>긍정코딩세상 Blog</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" >
+	<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Stylish&display=swap" rel="stylesheet">
 </svelte:head>
 
-<h1>Great success!</h1>
+<div class="container">
+	<div class="top">
+		<h1>긍정코딩세상 Blog</h1>
+		<ul class="post-nav">
+			<li>All</li>
+			<li>React</li>
+			<li>Spring</li>
+			<li>Flutter</li>
+			<li>Nginx</li>
+			<li>Linux</li>
+		</ul>
+		<hr/>
+	</div>
+	<div class="center">
+		<div class="post-list">
+			{#each results as item, i}
+			<h2>{`${i + 1}. ${item.properties.이름.title[0].text.content}`}</h2>
+			<p>{`${new Date(item.created_time).toLocaleString("ko-KR", {
+				year: "numeric",
+				month: "2-digit",
+				day: "2-digit",
+			})}`}</p>
+			<!-- svelte-ignore a11y-invalid-attribute -->
+			<a rel="external" href="{`/${item.id}`}">상세보기</a>
+			{/each}
+		</div>
+	</div>
+	<div class="bottom"></div>
+</div>
 
-<figure>
-	<img alt="Success Kid" src="{successkid}">
-	<figcaption>Have fun with Sapper!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+<style>
+	.container {
+		padding: 1.2em 1.2em;
+	}
+	.top {}
+	.post-nav{
+		display: flex;
+		list-style-type: none;
+		padding: 0px;
+	}
+	.post-nav > li {
+		padding: 0.4em 0.8em;
+		background-color: lightgoldenrodyellow;
+		border: 1px solid lightgray;
+		border-radius: 0.4em;
+		margin: 0.2em;
+	}
+	.center {}
+	.bottom {}
+	.post-list {}
+</style>
