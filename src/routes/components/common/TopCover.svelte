@@ -1,4 +1,7 @@
-<div class="top-cover">
+<script lang="ts">
+	export let src: string;
+</script>
+<div class="top-cover" style="background-image: url({src});">
     <div class="top-cover-block"></div>
     <div class="sub-menu">
         <div class="sub-menu-left">
@@ -52,7 +55,6 @@
 		background-color: unset;
 	}
 	.top-cover {
-		background-image: url("/top.webp");
 		height: 100vh;
 		background-size: cover;
 		display: flex;

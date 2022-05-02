@@ -12,6 +12,7 @@
 	import TopCover from "./components/common/TopCover.svelte";
 	import Card from './components/home/Card.svelte';
 	export let results: Object;
+	export let topCover: string = "/top.webp"
 </script>
 
 <svelte:head>
@@ -28,7 +29,7 @@
 		<Menu/>
 	</div>
 	<div class="right">
-		<TopCover/>
+		<TopCover src={topCover} />
 		<div class="card-list">
 			{#each results as item, i}
 				<Card item={item} />

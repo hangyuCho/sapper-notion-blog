@@ -12,7 +12,14 @@ export const getDatabase = async (databaseId: string) => {
     return response.results;
 }
 
-export const getPage = async (blockId: string) => {
+export const getPage = async (pageId: string) => {
+    const response = await notion.pages.retrieve({
+        page_id: pageId,
+    });
+    return response;
+}
+
+export const getBlocks = async (blockId: string) => {
     const blocks: any = [];
     let cursor: string;
     blockId = blockId || "";
@@ -43,13 +50,13 @@ export const  renderBlock = async(pageInfo: any)  =>  {
     let { type, id } = pageInfo
     switch (type) {
         case BlockType.Heading_1:  {
-            return `<h1>${renderText(pageInfo.heading_1.rich_text)}</h1>`;
+            return `<div class="heading-1"><h1>${renderText(pageInfo.heading_1.rich_text)}</h1></div>`;
         }
         case BlockType.Heading_2:  {
-            return `<h2>${renderText(pageInfo.heading_2.rich_text)}</h2>`;
+            return `<div class="heading-2"><h2>${renderText(pageInfo.heading_2.rich_text)}</h2></div>`;
         }
         case BlockType.Heading_3:  {
-            return `<h3>${renderText(pageInfo.heading_3.rich_text)}</h3>`;
+            return `<h3 class="heading-3">${renderText(pageInfo.heading_3.rich_text)}</h3>`;
         }
         case BlockType.Numbered_list_item: {
             return `${renderText(pageInfo.numbered_list_item.rich_text)}`;
@@ -95,9 +102,11 @@ export const renderText = (arr_rich_text: any) => {
             let strLink = rich_text.href;
             strText = `<a href="${strLink}">${strText}</a>`
         }
-        arrRichText.push(`
-            <p>${strText}</p>
-        `);
+        arrRichText.push(strText);
     });
     return arrRichText.join();
 }
+
+//export const renderParagraph = (paragraph: any) => {
+    //return paragraph.text.map( (objText:any) => objText.plain_text).join("\n");
+//}

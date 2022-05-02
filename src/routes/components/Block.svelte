@@ -32,3 +32,18 @@
     {/if}
 {/await}
 
+<style>
+	.heading-2::before{
+		content: "/*"
+	}
+	.heading-2::after{
+		content: "*/"
+	}
+    section>header,
+    section>div.row{
+        display: flex;
+    }
+    div.col{
+        flex: 1;
+    }
+</style>

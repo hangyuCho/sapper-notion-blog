@@ -6,8 +6,8 @@
     <div class="card">
         <div class="card-top">
             <!-- svelte-ignore a11y-missing-content -->
-            <a rel="external" href="{`/${item.id}`}">
-                <div class="card-cover"></div>
+            <a rel="external" href="{`/${item.id}?topcover=${item.cover.external.url}`}">
+                <img src={item.cover.external.url} alt="cover" class="card-cover"/>
             </a>
             <div class="card-share-btn">
                 <button type="button">
@@ -17,7 +17,7 @@
         </div>
         <div class="card-post">
             <div class="card-post-top">
-                <div class="card-post-badge">badge</div>
+                <div class="card-post-badge">{item.properties.상세메뉴.select.name}</div>
                 <div class="card-post-title">{item.properties.이름.title[0].text.content}</div>
                 <div class="card-post-desc">[aws]버킷생성...[aws]버킷생성...[aws]버킷생성...[aws]버킷생성...[aws]버킷생성...</div>
             </div>
@@ -62,6 +62,7 @@
         flex-direction: column;
     }
     .card-cover {
+        width: -webkit-fill-available;
         background-color: #64e1b3;
         height: 10em;
         border-top-left-radius: 1.4em;
@@ -90,10 +91,11 @@
         padding: 1em;
     }
     .card-post-badge {
+        display: inline-block;
         border-radius: 0.8em;
-        width: 3em;
+        min-width: 3em;
         background-color: #ff5151;
-        padding: 0em 0.4em;
+        padding: 0em 1em;
         box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
         color: #FFF;
         text-align: center;
