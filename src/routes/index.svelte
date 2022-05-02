@@ -1,3 +1,4 @@
+
 <script context="module" lang="ts">
 	import { Client } from '@notionhq/client';
 	import { getDatabase } from '../notion';
@@ -7,69 +8,53 @@
 	}
 </script>
 <script lang="ts">
-import Slug from "./[slug].svelte";
-
-	//export let meta: Object;
-	//const arrSlug = Object.values(meta);
+	import Menu from './components/common/Menu.svelte';
+	import TopCover from "./components/common/TopCover.svelte";
+	import Card from './components/home/Card.svelte';
 	export let results: Object;
-
 </script>
 
 <svelte:head>
 	<title>긍정코딩세상 Blog</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" >
-	<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Stylish&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Cute+Font&family=Do+Hyeon&family=Stylish&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+	<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </svelte:head>
 
 <div class="container">
-	<div class="top">
-		<h1>긍정코딩세상 Blog</h1>
-		<ul class="post-nav">
-			<li>All</li>
-			<li>React</li>
-			<li>Spring</li>
-			<li>Flutter</li>
-			<li>Nginx</li>
-			<li>Linux</li>
-		</ul>
-		<hr/>
+	<div class="left">
+		<Menu/>
 	</div>
-	<div class="center">
-		<div class="post-list">
+	<div class="right">
+		<TopCover/>
+		<div class="card-list">
 			{#each results as item, i}
-			<h2>{`${i + 1}. ${item.properties.이름.title[0].text.content}`}</h2>
-			<p>{`${new Date(item.created_time).toLocaleString("ko-KR", {
-				year: "numeric",
-				month: "2-digit",
-				day: "2-digit",
-			})}`}</p>
-			<!-- svelte-ignore a11y-invalid-attribute -->
-			<a rel="external" href="{`/${item.id}`}">상세보기</a>
+				<Card item={item} />
 			{/each}
 		</div>
 	</div>
-	<div class="bottom"></div>
 </div>
 
 <style>
 	.container {
-		padding: 1.2em 1.2em;
-	}
-	.top {}
-	.post-nav{
 		display: flex;
-		list-style-type: none;
-		padding: 0px;
+		position: relative;
+		color: rgb(150, 150, 150);
 	}
-	.post-nav > li {
-		padding: 0.4em 0.8em;
-		background-color: lightgoldenrodyellow;
-		border: 1px solid lightgray;
-		border-radius: 0.4em;
-		margin: 0.2em;
+	.left {
+		position: fixed;
+		background-color: #FFFFFF;
+		height: -webkit-fill-available;
+		width: 12em;
 	}
-	.center {}
-	.bottom {}
-	.post-list {}
+	.right{
+		width: -webkit-fill-available;
+		margin-left: 12em;
+	}
+	.card-list {
+		display: flex;
+		flex-wrap: wrap;
+	}
 </style>

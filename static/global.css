@@ -19,6 +19,10 @@ h1 {
 a {
 	color: inherit;
 }
+p {
+	margin-block-start: 0px;
+	margin-block-end: 0px;
+}
 
 code {
 	font-family: menlo, inconsolata, monospace;
@@ -29,6 +33,9 @@ code {
 	border-radius: 2px;
 }
 
+[class^=material] {
+	font-family: Material Symbols Outlined;
+}
 @media (min-width: 400px) {
 	body {
 		font-size: 16px;

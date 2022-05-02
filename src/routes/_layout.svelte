@@ -12,9 +12,11 @@
 </div>
 
 <style>
+  /*
   div {
     padding: 0 40px;
     max-width: 900px;
     margin: 0 auto;
   }
+  */
 </style>
