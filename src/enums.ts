@@ -28,4 +28,5 @@ export enum BlockType {
     Link_to_page = "link_to_page",
     Table = "table" ,
     Table_row = "table_row",
+    Code = "code",
 }

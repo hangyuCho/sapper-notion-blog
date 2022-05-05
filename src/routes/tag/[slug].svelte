@@ -1,14 +1,14 @@
-
 <script context="module" lang="ts">
-	import { getDatabase } from '../notion';
-	export async function preload() {
+	import { getDatabase } from '../../notion';
+	export async function preload({ params }) {
+		console.log(params.slug);
 		const results: Object = await getDatabase(process.env.NOTION_DATABASE_ID);
 		return { results }
 	}
 </script>
 <script lang="ts">
-	import TopCover from "../components/common/TopCover.svelte";
-	import Card from '../components/home/Card.svelte';
+	import TopCover from "../../components/common/TopCover.svelte";
+	import Card from '../../components/home/Card.svelte';
 	export let results: any;
 	export let topCover: string = "/top.webp"
 </script>

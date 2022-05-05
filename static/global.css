@@ -7,7 +7,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin: 0 0 0.5em 0;
+	margin: 0.5em 0 0.5em 0;
 	font-weight: 400;
 	line-height: 1.2;
 }
@@ -23,19 +23,43 @@ p {
 	margin-block-start: 0px;
 	margin-block-end: 0px;
 }
+pre {
+	margin: 0em 0px 1em;
+	width: -webkit-fill-available;
+}
+
+pre.langtag::after {
+	top: -50px !important;
+	color: wheat !important;
+}
 
 code {
 	font-family: menlo, inconsolata, monospace;
 	font-size: calc(1em - 2px);
-	color: #555;
 	background-color: #f0f0f0;
 	padding: 0.2em 0.4em;
-	border-radius: 2px;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
 }
 
-[class^=material] {
-	font-family: Material Symbols Outlined;
+div {
+	box-sizing: border-box;
 }
+
+@font-face {
+    font-family: 'RIDIBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}  
+
+@font-face {
+    font-family: 'SuncheonB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 @media (min-width: 400px) {
 	body {
 		font-size: 16px;

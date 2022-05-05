@@ -1,4 +1,3 @@
-
 <script lang="ts">
 	export let item: any;
 </script>
@@ -6,8 +5,12 @@
     <div class="card">
         <div class="card-top">
             <!-- svelte-ignore a11y-missing-content -->
-            <a rel="external" href="{`/${item.id}?topcover=${item.cover.external.url}`}">
+            <a rel="external" href="{`/${item.id}`}">
+                {#if item.cover != null}
                 <img src={item.cover.external.url} alt="cover" class="card-cover"/>
+                {:else}
+                <img src="/default_cover.jpeg" alt="cover" class="card-cover"/>
+                {/if}
             </a>
             <div class="card-share-btn">
                 <button type="button">
@@ -19,7 +22,11 @@
             <div class="card-post-top">
                 <div class="card-post-badge">{item.properties.상세메뉴.select.name}</div>
                 <div class="card-post-title">{item.properties.이름.title[0].text.content}</div>
-                <div class="card-post-desc">[aws]버킷생성...[aws]버킷생성...[aws]버킷생성...[aws]버킷생성...[aws]버킷생성...</div>
+                <div class="card-post-desc">{`${
+                    item.properties.설명.rich_text[0].text.content.length < 60 ?
+                    item.properties.설명.rich_text[0].text.content :
+                    item.properties.설명.rich_text[0].text.content.substring(0, 60) + '...'
+                    }`}</div>
             </div>
             <div class="card-post-bottom">
                 <div class="card-post-bottom-left">
@@ -46,7 +53,6 @@
 <style>
     .container{
         display: flex;
-        width: 18em;
         padding: 1em;
     }
     .card {
@@ -54,6 +60,7 @@
         flex-direction: column;
         position: relative;
         border-radius: 1.4em;
+        width: 18em;
         box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
     }
     .card-top {
@@ -141,4 +148,7 @@
      }
     .card-post-bottom-comment-icon {}
     .card-post-bottom-comment-count {}
+    .material-symbols-outlined{
+		font-family: Material Symbols Rounded;
+    }
 </style>
