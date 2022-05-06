@@ -1,5 +1,4 @@
 import { Client } from "@notionhq/client"
-import { BlockType } from "./enums";
 import { typescript, java, javascript } from "svelte-highlight/languages";
 
 export const notion = new Client({
@@ -9,6 +8,14 @@ export const notion = new Client({
 export const getDatabase = async (databaseId: string) => {
     const response = await notion.databases.query({
         database_id: databaseId,
+    });
+    return response.results;
+}
+
+export const getDatabaseByCondition = async (databaseId: string, filter: any) => {
+    const response = await notion.databases.query({
+        database_id: databaseId,
+        filter 
     });
     return response.results;
 }

@@ -47,28 +47,28 @@
 {#each blocksWithChild as item}
 	<!-- svelte-ignore empty-block -->
 	{#if item.type == BlockType.Heading_1}
-		<h1>
-			<div class="block-type heading-1">
+		<div class="block-type heading-1">
+			<h1>
 				<p>{@html renderText(item.heading_1.rich_text)}</p>
-			</div>
-		</h1>
+			</h1>
+		</div>
 	{/if}
 	{#if item.type == BlockType.Heading_2}
-		<h2>
-			<div class="block-type heading-2">
+		<div class="block-type heading-2">
+			<h2>
 				<div class="text-with-under-line">
 					<p class="text">{@html renderText(item.heading_2.rich_text)}</p>
 					<div class="under-line"></div>
 				</div>
-			</div>
-		</h2>
+			</h2>
+		</div>
 	{/if}
 	{#if item.type == BlockType.Heading_3}
-		<h2>
-			<div class="block-type heading-3">
+		<div class="block-type heading-3">
+			<h3>
 				<p>{@html renderText(item.heading_3.rich_text)}</p>
-			</div>
-		</h2>
+			</h3>
+		</div>
 	{/if}
 	{#if item.type == BlockType.To_do}
 		<div class="block-type todo">
@@ -168,7 +168,7 @@
 	.post {
 		display: flex;
 		flex-direction: column;
-		padding: 3em 5em;
+		padding: 3em 0em;
 		font-family: SuncheonB, Dongle, Stylish, Black Han Sans, Do Hyeon, 'Courier New', Courier, monospace;
 		font-size: 1.2em;
 
@@ -176,70 +176,76 @@
 	.post p {
 		font-weight: 300;
 	}
-	.block-type { display: flex; }
+	.block-type { 
+		display: flex; 
+		padding-left: 5em;
+		padding-right: 5em;
+	}
 	.block-type.todo,
 	.block-type.bulleted-list-item,
 	.block-type.numbered-list-item {
 		align-items: center;
 	}
 	.block-type.code { flex-direction: column; }
-	.block-type.heading-1 {
+	.block-type.heading-1>h1 {
+		display: flex;
 		padding: 1em 0.2em 0em;
 	}
-	.block-type.heading-1>p {
+	.block-type.heading-1>h1>p {
 		font-weight: 700;
 		padding: 0em 0.2em;
 	}
-	.block-type.heading-1::before { 
+	.block-type.heading-1>h1::before { 
 		content:"/* ";
 		color: lightgray;
 		
 	}
-	.block-type.heading-1::after {
+	.block-type.heading-1>h1::after {
 		content:" */";
 		color: lightgray;
 	}
-	.block-type.heading-2 {
+	.block-type.heading-2>h2 {
 		display: flex;
 		align-items: flex-end;
 		padding: 0.4em 0em 0.2em;
 		margin: 1em 0em 0em;
 	}
-	.block-type.heading-2::before { 
+	.block-type.heading-2>h2::before { 
 		content:"\e22b";
 		font-family: Material Symbols Rounded;
 		color: #ff6e6e;
 	}
-	.block-type.heading-2>.text-with-under-line {
+	.block-type.heading-2>h2>.text-with-under-line {
 		flex-direction: column;
 	}
-	.block-type.heading-2>.text-with-under-line>.text {
+	.block-type.heading-2>h2>.text-with-under-line>.text {
 		height: 1.1em;
 	}
-	.block-type.heading-2>.text-with-under-line>p {
+	.block-type.heading-2>h2>.text-with-under-line>p {
 		font-size: 1em;
 		height: 0.94em;
 		font-weight: 400;
 	}
-	.block-type.heading-2>.text-with-under-line>.under-line {
+	.block-type.heading-2>h2>.text-with-under-line>.under-line {
 		border-radius: 0.8em;
 		background: linear-gradient(90deg, rgba(255,110,110,1) 0%, rgba(89,9,121,1) 50%, rgba(0,20,255,1) 100%);
 		margin-top: 0.02em;
 		height: 0.14em;
 		margin-bottom: 0.12em;
 	}
-	.block-type.heading-3 {
+	.block-type.heading-3>h3 {
+		display: flex;
 		padding: 0.4em 0em 0.2em;
-		}
-	.block-type.heading-3::before { 
+	}
+	.block-type.heading-3>h3::before { 
 		content:"[";
 		color: #ff6e6e;
 	}
-	.block-type.heading-3::after {
+	.block-type.heading-3>h3::after {
 		content:"]";
 		color: #ff6e6e;
 	}
-	.block-type.heading-3>p {
+	.block-type.heading-3>h3>p {
 		font-weight: 400;
 	}
 	.block-type.todo > .checked-icon::before {
@@ -301,8 +307,6 @@
 		font-size: 0.7em;
 		margin-right: 0.2em;
 	}
-	.block-type.bulleted-list-item::before { /* TODO */ }
-	.block-type.toggle {}
 	.block-type.quote {
 		padding: 0.4em;
 		border-radius: 0.2em;
@@ -322,6 +326,7 @@
 		margin: 0.4em 0em;
 		border: 0.2em solid #ebebeb;
 		background-color: #ebebeb;
+        box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
 	}
 	.block-type.callout{
 		background-color: #e1f5ea;

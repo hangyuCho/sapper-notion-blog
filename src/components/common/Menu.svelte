@@ -52,12 +52,14 @@
 				</summary>
 				{#each nav.menuDetailGroup as childMenu}
 				<div class="nav-menu child">
-					<div class="nav-area">
-						<div class="nav-icon child" style="background-image: url({childMenu.emoji});"></div>
-						<div class="nav-name">
-							{childMenu.menuDetail}
+					<a rel="external" href={`/tag/${childMenu.filterKeyword}`}>
+						<div class="nav-area">
+							<div class="nav-icon child" style="background-image: url({childMenu.emoji});"></div>
+							<div class="nav-name">
+									{childMenu.menuDetail}
+							</div>
 						</div>
-					</div>
+					</a>
 				</div>
 				{/each}
 			</details>
@@ -66,6 +68,9 @@
 	</div>
 </div>
 <style>
+	a {
+		text-decoration: none;
+	}
 	.menu-container {
 		position: sticky;
 		top: 0px;
@@ -153,7 +158,7 @@
 		padding-left: 2em;
 	}
 	.nav-icon.root {
-		background-image: url(https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1603679366/noticon/dcvetqndre7gda3ttijy.gif);
+		background: url(https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1603679366/noticon/dcvetqndre7gda3ttijy.gif);
 		height: 2em;
 		width: 2em;
 		border-radius: 0.2em;

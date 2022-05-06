@@ -8,7 +8,7 @@
 </script>
 <script lang="ts">
 	import TopCover from "../components/common/TopCover.svelte";
-	import Card from '../components/home/Card.svelte';
+	import CardList from '../components/home/CardList.svelte';
 	export let results: any;
 	export let topCover: string = "/top.webp"
 </script>
@@ -23,21 +23,4 @@
 </svelte:head>
 
 <TopCover src={topCover} />
-<div class="card-list">
-	{#each results as item, i}
-		{#if item.properties.상세메뉴.select != null || 
-			item.properties.설명.rich_text.length > 0 || 
-			item.properties.이름.title.length > 0   
-		}
-		<Card item={item} />
-		{/if}
-	{/each}
-</div>
-
-<style>
-	.card-list {
-		display: flex;
-		flex-wrap: wrap;
-		color: rgb(150, 150, 150);
-	}
-</style>
+<CardList items={results}/>
