@@ -60,7 +60,7 @@
 	.left {
 		position: sticky;
 		background-color: #FFFFFF;
-		min-width: 12em;
+		min-width: 12rem;
 	}
 	.right{
 		width: -webkit-fill-available;

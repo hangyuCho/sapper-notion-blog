@@ -82,22 +82,22 @@
 	.left-cover {
 		background-color: #64e1b3;
 		width: -webkit-fill-available;
-		height: 4em;
+		height: 4rem;
 	}
 	.left-picture {
 		background-image: url("/favicon.png");
 		position: absolute;
-		left: 4.2em;
-		top: 2.4em;
-		height: 3.5em;
-		width: 3.5em;
-		border-radius: 0.6em;
+		left: 4.2rem;
+		top: 2.4rem;
+		height: 3.5rem;
+		width: 3.5rem;
+		border-radius: 0.6rem;
 		background-size: cover;
 		background-color: lightgoldenrodyellow;
 	}
 	.left-profile {
 		display: flex;
-		margin-top: 2.4em;
+		margin-top: 2.4rem;
 		flex-direction: column;
 		align-items: center;
 	}
@@ -106,7 +106,7 @@
 	}
 	.visitors {
 		display: flex;
-		font-size: 0.8em;
+		font-size: 0.8rem;
 		justify-content: space-around;
 		border-top: 1px solid rgb(240, 240, 240);
 		border-bottom: 1px solid rgb(240, 240, 240);
@@ -119,28 +119,28 @@
 		align-items: center;
 	}
 	.visitors .vis-count{
-		font-size: 1.4em;
+		font-size: 1.4rem;
 		color: black;
 	}
 	.visitors .vis-category{
-		font-size: 1em;
+		font-size: 1rem;
 	}
 	.nav{
 		display: flex;
 		flex-direction: column;
-		padding: 1em 0.2em;
+		padding: 1rem 0.2rem;
 		height: 70vh;
 		overflow-x: auto;
 	}
 	.nav-menu{
 		display: flex;
-		padding: 0.2em 0em;
+		padding: 0.2rem 0rem;
 		align-items: center;
 	}
 	.nav-menu,
 	.nav-area{
 		display: flex;
-		padding: 0.2em 0em 0.2em 0.6em;
+		padding: 0.2rem 0rem 0.2rem 0rem;
 		align-items: center;
 	}
 	.nav-menu.parent{
@@ -151,19 +151,19 @@
 	}
 	.nav-menu.child::before{
 		content: "▶︎";
-		font-size: 0.6em;
-		padding: 0em 0.2em 0em 4em;
+		font-size: 0.6rem;
+		padding: 0rem 0.2rem 0rem 4rem;
 	}
 	.nav-icon {
-		padding-left: 2em;
+		padding-left: 2rem;
 	}
 	.nav-icon.root {
 		background: url(https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1603679366/noticon/dcvetqndre7gda3ttijy.gif);
-		height: 2em;
-		width: 2em;
-		border-radius: 0.2em;
-		padding: 0em;
-		margin: 0em 0.2em;
+		height: 2rem;
+		width: 2rem;
+		border-radius: 0.2rem;
+		padding: 0rem;
+		margin: 0rem 0.2rem;
 		background-size: cover;
 		image-rendering: -webkit-optimize-contrast;
 		transform: translateZ(0);
@@ -171,11 +171,11 @@
 	}
 	.nav-icon.parent {
 		background-image: url(https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1603679176/noticon/rfgzeyojg7miwxekxebp.png);
-		height: 2em;
-		width: 2em;
-		border-radius: 0.2em;
-		padding: 0em;
-		margin: 0em 0.2em;
+		height: 2rem;
+		width: 2rem;
+		border-radius: 0.2rem;
+		padding: 0rem;
+		margin: 0rem 0.2rem;
 		background-size: cover;
 		image-rendering: -webkit-optimize-contrast;
 		transform: translateZ(0);
@@ -183,11 +183,11 @@
 	}
 	.nav-icon.child {
 		background-image: url(https://www.saashub.com/images/app/service_logos/63/5a5d34be5e8e/large.png?1564717217);
-		height: 1.8em;
-		width: 1.8em;
-		border-radius: 0.2em;
-		padding: 0em;
-		margin: 0em 0.2em;
+		height: 1.8rem;
+		width: 1.8rem;
+		border-radius: 0.2rem;
+		padding: 0rem;
+		margin: 0rem 0.2rem;
 		background-size: cover;
 		image-rendering: -webkit-optimize-contrast;
 		transform: translateZ(0);
@@ -208,14 +208,14 @@
 		font-family: Material Symbols Rounded;
 		float: right; 
 		color: grey; 
-		padding: 0em 0.4em;
+		padding: 0rem 0.4rem;
 	}
 	.details.nav-toggle[open]::after{
 		content: "\e5cf";
 		font-family: Material Symbols Rounded;
 		float: right; 
 		color: red; 
-		padding: 0em 0.4em;
+		padding: 0rem 0.4rem;
 	}
 
 </style>

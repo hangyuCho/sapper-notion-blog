@@ -30,3 +30,10 @@ export enum BlockType {
     Table_row = "table_row",
     Code = "code",
 }
+
+export enum LanguageType {
+    Java = "java",
+    JavaScript = "javascript",
+    TypeScript = "typescript",
+    Xml = "xml",
+}

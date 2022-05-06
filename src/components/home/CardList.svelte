@@ -19,11 +19,6 @@
 		}
 		<Card item={item} />
 		{/if}
-		<!--
-		{#if item.properties.상세메뉴.select != null || item.properties.설명.rich_text.length > 0 || item.properties.이름.title.length > 0 || item.properties.필터키워드.rich_text.length > 0 || item.properties.비활성여부.checkbox = false }
-		<Card item={item} />
-		{/if}
-		-->
 	{/each}
 </div>
 <style>
@@ -31,5 +26,6 @@
 		display: flex;
 		flex-wrap: wrap;
 		color: rgb(150, 150, 150);
+		justify-content: space-around;
 	}
 </style>

@@ -1,5 +1,6 @@
 import { Client } from "@notionhq/client"
-import { typescript, java, javascript } from "svelte-highlight/languages";
+import { typescript, java, javascript, xml } from "svelte-highlight/languages";
+import { LanguageType } from "./enums"
 
 export const notion = new Client({
     auth: process.env.NOTION_TOKEN
@@ -75,20 +76,9 @@ export const renderCode = (code: any) => {
 
 export const getLanguage = (lang: string) => {
     switch (lang) {
-        case LanguageType.Java: {
-            return java;
-        }
-        case LanguageType.JavaScript: {
-            return javascript;
-        }
-        case LanguageType.TypeScript: {
-            return typescript;
-        }
+        case LanguageType.Java: { return java; }
+        case LanguageType.JavaScript: { return javascript; }
+        case LanguageType.TypeScript: { return typescript; }
+        case LanguageType.Xml: { return xml; }
     }
-}
-
-export enum LanguageType {
-    Java = "java",
-    JavaScript = "javascript",
-    TypeScript = "typescript",
 }

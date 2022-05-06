@@ -53,14 +53,14 @@
 <style>
     .container{
         display: flex;
-        padding: 1em;
+        padding: 1rem;
     }
     .card {
         display: flex;
         flex-direction: column;
         position: relative;
-        border-radius: 1.4em;
-        width: 18em;
+        border-radius: 1.4rem;
+        width: 18rem;
         box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
     }
     .card-top {
@@ -71,18 +71,18 @@
     .card-cover {
         width: -webkit-fill-available;
         background-color: #64e1b3;
-        height: 10em;
-        border-top-left-radius: 1.4em;
-        border-top-right-radius: 1.4em;
+        height: 10rem;
+        border-top-left-radius: 1.4rem;
+        border-top-right-radius: 1.4rem;
     }
     .card-share-btn {
         display: flex;
     }
     .card-share-btn button {
         position: absolute;
-        height: 3em;
-        width: 3em;
-        border-radius: 1.8em;
+        height: 3rem;
+        width: 3rem;
+        border-radius: 1.8rem;
         border: 0px solid;
         background-color: #FFF;
         box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
@@ -95,24 +95,24 @@
     }
     .card-post-top,
     .card-post-bottom {
-        padding: 1em;
+        padding: 1rem;
     }
     .card-post-badge {
         display: inline-block;
-        border-radius: 0.8em;
-        min-width: 3em;
+        border-radius: 0.8rem;
+        min-width: 3rem;
         background-color: #ff5151;
-        padding: 0em 1em;
+        padding: 0rem 1rem;
         box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
         color: #FFF;
         text-align: center;
     }
     .card-post-title {
         color: black;
-        padding: 0.6em 0em;
+        padding: 0.6rem 0rem;
     }
     .card-post-desc {
-        font-size: 0.8em;
+        font-size: 0.8rem;
     }
     .card-post-bottom {
         display: flex;
@@ -130,24 +130,22 @@
 
 	.card-post-avatar {
 		background-image: url("/favicon.png");
-		height: 2em;
-		width: 2em;
-		border-radius: 1em;
+		height: 2rem;
+		width: 2rem;
+		border-radius: 1rem;
 		background-size: cover;
 		background-color: lightgoldenrodyellow;
 	}
     .card-post-update-info {
-        padding: 0em 0.4em;
+        padding: 0rem 0.4rem;
     }
     .card-post-updater {
-        font-size: 1em;
+        font-size: 1rem;
         color: black;
     }
     .card-post-update-at {
-        font-size: 0.7em;
+        font-size: 0.7rem;
      }
-    .card-post-bottom-comment-icon {}
-    .card-post-bottom-comment-count {}
     .material-symbols-outlined{
 		font-family: Material Symbols Rounded;
     }

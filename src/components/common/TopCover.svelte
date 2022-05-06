@@ -31,25 +31,25 @@
 		display: flex;
 		justify-content: space-between;
 		color: rgb(151, 151, 151);
-		padding: 0.8em 1em;
+		padding: 0.8rem 1rem;
 	}
 	.sub-menu-left {
 		display: flex;
 	}
 	.nav-sub {
 		display: flex;
-		padding: 0em 0.6em;
+		padding: 0rem 0.6rem;
 	}
 	.nav-sub-parent {
-		padding: 0em 1em;
+		padding: 0rem 1rem;
 	}
 	.p-area {
-		padding: 5em;
+		padding: 5rem;
 	}
 	.p-area .btn-move-to-post {
-		width: 8em;
-		height: 3em;
-		border-radius: 1.3em;
+		width: 8rem;
+		height: 3rem;
+		border-radius: 1.3rem;
 		border: 2px solid #579187;
 		color: #579187;
 		background-color: unset;
