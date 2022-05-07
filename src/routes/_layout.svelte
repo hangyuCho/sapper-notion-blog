@@ -1,5 +1,4 @@
 <script context="module" lang="ts">
-	import { properties } from './../../node_modules/svelte-highlight/languages/properties.js';
 	import { getDatabase } from '../notion';
 	export async function preload() {
 		const results: Object = await getDatabase(process.env.NOTION_DATABASE_ID);
@@ -8,6 +7,7 @@
 </script>
 <script lang="ts">
 	import Menu from '../components/common/Menu.svelte';
+	import SubMenu from '../components/common/SubMenu.svelte';
 	export let results: any;
 	export let segment: string;
 	segment;
@@ -49,6 +49,7 @@
 		<Menu jsonMenu={groupByMenuJson}/>
 	</div>
 	<div class="right">
+		<SubMenu jsonMenu={groupByMenuJson}/>
     <slot />
   </div>
 </div>

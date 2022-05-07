@@ -1,23 +1,9 @@
 <script lang="ts">
 	export let src: string;
+	export let jsonMenu: string;
 </script>
 <div class="top-cover" style="background-image: url({src});">
     <div class="top-cover-block"></div>
-    <div class="sub-menu">
-        <div class="sub-menu-left">
-            <div class="sub-menu-logo">
-                logo
-            </div>
-            <div class="nav-sub">
-                <div class="nav-sub-parent">nav1</div>
-                <div class="nav-sub-parent">nav2</div>
-                <div class="nav-sub-parent">nav3</div>
-            </div>
-        </div>
-        <div class="sub-menu-right">
-            <div class="search">search</div>
-        </div>
-    </div>
     <div class="p-area">
         <h1>긍정코딩세상 blog</h1>
         <p>사람은 행복하기로 마음먹은 만큼 행복하다.</p>

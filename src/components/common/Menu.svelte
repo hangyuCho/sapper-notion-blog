@@ -8,7 +8,7 @@
 		</div>
 		<div class="left-profile">
 			<div class="title">
-				<h3>긍정코딩세상 Blog</h3>
+				<a rel="external" href="/"><h3>긍정코딩세상 Blog</h3></a>
 			</div>
 			<div class="name">
 				<p>h-9</p>
@@ -131,6 +131,11 @@
 		padding: 1rem 0.2rem;
 		height: 70vh;
 		overflow-x: auto;
+		-ms-overflow-style: none;  /* IE and Edge */
+		scrollbar-width: none;  /* Firefox */
+	}
+	.nav::-webkit-scrollbar {
+		display: none;
 	}
 	.nav-menu{
 		display: flex;
