@@ -12,10 +12,10 @@
 <div class="card-list">
 	{#each items as item, i}
 		{#if isNotEmptyByDetailMenu(item) && 
-		isNotEmptyByDesc(item) && 
-		isNotEmptyByName(item) && 
-		isNotEmptyByFilterKeyword(item) && 
-		isInActiveCard(item) 
+			 isNotEmptyByDesc(item) && 
+			 isNotEmptyByName(item) && 
+			 isNotEmptyByFilterKeyword(item) && 
+			 isInActiveCard(item) 
 		}
 		<Card item={item} />
 		{/if}

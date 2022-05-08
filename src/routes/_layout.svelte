@@ -59,7 +59,8 @@
 		display: flex;
 	}
 	.left {
-		position: sticky;
+		display: none;
+		position: absolute;
 		background-color: #FFFFFF;
 		min-width: 12rem;
 	}

@@ -1,6 +1,9 @@
 <script lang="ts">
 	export let src: string;
 	export let jsonMenu: string;
+	export let windowScrollY: any;
+	function showContent() {
+	}
 </script>
 <div class="top-cover" style="background-image: url({src});">
     <div class="top-cover-block"></div>
@@ -9,26 +12,11 @@
         <p>사람은 행복하기로 마음먹은 만큼 행복하다.</p>
         <p> - 에이브러험 링컨 - </p>
         <br/>
-        <button class="btn-move-to-post" type="button">show posts</button>
+        <a class="btn-move-to-post" rel="external" href="#content-start" >show posts</a>
     </div>
 </div>
+<div id="content-start"/>
 <style>
-	.sub-menu {
-		display: flex;
-		justify-content: space-between;
-		color: rgb(151, 151, 151);
-		padding: 0.8rem 1rem;
-	}
-	.sub-menu-left {
-		display: flex;
-	}
-	.nav-sub {
-		display: flex;
-		padding: 0rem 0.6rem;
-	}
-	.nav-sub-parent {
-		padding: 0rem 1rem;
-	}
 	.p-area {
 		padding: 5rem;
 	}
@@ -39,6 +27,8 @@
 		border: 2px solid #579187;
 		color: #579187;
 		background-color: unset;
+		padding: 1rem;
+		text-decoration: none;
 	}
 	.top-cover {
 		height: 100vh;
@@ -49,7 +39,7 @@
 		z-index: 10;
 		position: relative;
 		color: #FFF;
-		justify-content: space-between;
+		justify-content: flex-end;
 	}
 	.top-cover-block {
 		position: absolute;

@@ -195,7 +195,6 @@
 	.block-type.heading-1>h1::before { 
 		content:"/* ";
 		color: lightgray;
-		
 	}
 	.block-type.heading-1>h1::after {
 		content:" */";
@@ -253,8 +252,7 @@
 		color: #ff6e6e;
 	}
 	.block-type.paragraph {
-		white-space: pre;
-		overflow-y: auto;
+		white-space: pre-wrap;
 	} 
 	.block-type.code {
 		flex-direction: column;
@@ -319,10 +317,18 @@
 		padding-left: 0.4rem;
 	}
 	.block-type.divider { 
+		position: relative;
 		margin: 0.4rem 0rem;
-		border: 0.2rem solid #ebebeb;
-		background-color: #ebebeb;
-        box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
+		border-top: 0.2rem dashed #ebebeb;
+	}
+	.block-type.divider::before {
+		position: absolute;
+		content: "\f08b";
+		font-family: Material Symbols Rounded;
+		color: #ff6e6e;
+		width: 0.1rem;
+		top: -14px;
+		left: 14px;
 	}
 	.block-type.callout{
 		background-color: #e1f5ea;

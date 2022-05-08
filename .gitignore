@@ -8,3 +8,6 @@ dist
 /.vscode/settings.json
 .env*
 yarn*
+src/node_modules/\@sapper/internal/
+
+src/node_modules/\@sapper/
