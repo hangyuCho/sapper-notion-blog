@@ -18,7 +18,7 @@
 <div id="content-start"/>
 <style>
 	.p-area {
-		padding: 5rem;
+		padding: 3rem;
 	}
 	.p-area .btn-move-to-post {
 		width: 8rem;

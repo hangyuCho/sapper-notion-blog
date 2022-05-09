@@ -54,6 +54,7 @@
     .container{
         display: flex;
         padding: 1rem;
+        flex: 1;
     }
     .card {
         display: flex;
@@ -92,6 +93,8 @@
     .card-post {
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
+        height: 16rem;
     }
     .card-post-top,
     .card-post-bottom {
@@ -106,13 +109,14 @@
         box-shadow: rgb(0 0 0 / 20%) 0px 3px 1px -2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px, rgb(0 0 0 / 12%) 0px 1px 5px 0px;
         color: #FFF;
         text-align: center;
+        font-size: 1rem;
     }
     .card-post-title {
         color: black;
         padding: 0.6rem 0rem;
     }
     .card-post-desc {
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
     .card-post-bottom {
         display: flex;
@@ -126,6 +130,7 @@
     .card-post-bottom-right {
         display: flex;
         align-items: center;
+        font-size: 1rem;
     }
 
 	.card-post-avatar {

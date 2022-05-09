@@ -212,11 +212,9 @@
 		color: #ff6e6e;
 	}
 	.block-type.heading-2>h2>.text {
-		height: 1.1rem;
 	}
 	.block-type.heading-2>h2>p {
-		font-size: 1rem;
-		height: 0.94rem;
+		font-size: 1.8rem;
 		font-weight: 400;
 	}
 	.block-type.heading-2>h2>.text-with-under-line>.under-line {

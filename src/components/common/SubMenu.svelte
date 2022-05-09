@@ -155,7 +155,7 @@
 		border: 2px solid #599d77b0;
 	}
 	.sub-menu-logo {
-		background-image: url(/favicon.png);
+		background-image: url(/inu2.png);
 		background-size: cover;
 		background-color: #64e1b3;
 		height: 3rem;

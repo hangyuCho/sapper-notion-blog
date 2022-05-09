@@ -10,22 +10,28 @@
 	export let items: any;
 </script>
 <div class="card-list">
-	{#each items as item, i}
-		{#if isNotEmptyByDetailMenu(item) && 
-			 isNotEmptyByDesc(item) && 
-			 isNotEmptyByName(item) && 
-			 isNotEmptyByFilterKeyword(item) && 
-			 isInActiveCard(item) 
-		}
-		<Card item={item} />
-		{/if}
-	{/each}
+	<div class="card-list-center">
+		{#each items as item, i}
+			{#if isNotEmptyByDetailMenu(item) && 
+				isNotEmptyByDesc(item) && 
+				isNotEmptyByName(item) && 
+				isNotEmptyByFilterKeyword(item) && 
+				isInActiveCard(item) 
+			}
+			<Card item={item} />
+			{/if}
+		{/each}
+	</div>
 </div>
 <style>
 	.card-list {
 		display: flex;
+		justify-content: center;
+	}
+	.card-list-center {
+		display: flex;
 		flex-wrap: wrap;
 		color: rgb(150, 150, 150);
-		justify-content: space-around;
+		justify-content: flex-start;
 	}
 </style>
