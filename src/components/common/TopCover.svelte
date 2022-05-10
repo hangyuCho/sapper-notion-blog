@@ -1,9 +1,5 @@
 <script lang="ts">
 	export let src: string;
-	export let jsonMenu: string;
-	export let windowScrollY: any;
-	function showContent() {
-	}
 </script>
 <div class="top-cover" style="background-image: url({src});">
     <div class="top-cover-block"></div>

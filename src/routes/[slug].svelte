@@ -9,13 +9,14 @@
 	export async function preload({ params }) {
 		const blocks = await getBlocks(params.slug);
 		const page = await getPage(params.slug);
+		const slug = params.slug;
 		let blocksWithChild = [...blocks];
 		for(let parentBlock of blocksWithChild) {
 			if (parentBlock.has_children) {
 				parentBlock.child = await getBlock(parentBlock.id);
 			}
 		}
-		return { blocksWithChild, page }
+		return { blocksWithChild, page, slug }
 	}
 </script>
 
@@ -24,10 +25,17 @@
 	import TopCover from "../components/common/TopCover.svelte";
 	import Highlight from "svelte-highlight";
 	import monokaiSublime from "svelte-highlight/styles/monokai-sublime";
+	import { onMount } from 'svelte';
 	export let blocksWithChild: any;
 	export let page: any;
-</script>
+	export let slug: any;
+	export let Comments: any;
 
+	onMount(async () => {
+		const module = await import('disqus-svelte');
+		Comments = module.default;
+	});
+</script>
 
 <svelte:head>
 	<title>긍정코딩세상 Blog</title>
@@ -160,7 +168,7 @@
 	{/if}
 {/each}
 </div>
-
+<svelte:component this={Comments} identifier={slug}/>
 <style>
 	.post {
 		display: flex;

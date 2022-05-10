@@ -1476,6 +1476,11 @@ detect-indent@^6.0.0:
   resolved "https://registry.yarnpkg.com/detect-indent/-/detect-indent-6.1.0.tgz#592485ebbbf6b3b1ab2be175c8393d04ca0d57e6"
   integrity sha512-reYkTUJAZb9gUuZ2RvVCNhVHdg62RHnJ7WJl8ftMi4diZ6NWlciOzQN88pUhSELEwflJht4oQDv0F0BMlwaYtA==
 
+disqus-svelte@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/disqus-svelte/-/disqus-svelte-1.0.9.tgz#a4bcf44b02c83df2c4c02fb6b99fcbf9d66006ea"
+  integrity sha512-hMbfomWWNhiuZ7PuQvtFIn93IYaSaYZe+wShu1pFE87HlXiggsxFm8IekDiEX/2p1l11B4sgRbkbr0KHCg2+ow==
+
 dotenv@^16.0.0:
   version "16.0.0"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.0.tgz#c619001253be89ebb638d027b609c75c26e47411"
