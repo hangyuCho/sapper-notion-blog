@@ -30,10 +30,14 @@
 	export let page: any;
 	export let slug: any;
 	export let Comments: any;
+  export let theme: string = "github-light";
+  export let Utterances: any;
 
 	onMount(async () => {
 		const module = await import('disqus-svelte');
+    const module2 = await import('@codewithshin/svelte-utterances');
 		Comments = module.default;
+		Utterances = module2.Utterances;
 	});
 </script>
 
@@ -168,7 +172,8 @@
 	{/if}
 {/each}
 </div>
-<svelte:component this={Comments} identifier={slug}/>
+<svelte:component this={Utterances} reponame="hangyuCho/sapper-notion-blog" { theme } />
+
 <style>
 	.post {
 		display: flex;
@@ -218,19 +223,6 @@
 		content:"\e22b";
 		font-family: Material Symbols Rounded;
 		color: #ff6e6e;
-	}
-	.block-type.heading-2>h2>.text {
-	}
-	.block-type.heading-2>h2>p {
-		font-size: 1.8rem;
-		font-weight: 400;
-	}
-	.block-type.heading-2>h2>.text-with-under-line>.under-line {
-		border-radius: 0.8rem;
-		background: linear-gradient(90deg, rgba(255,110,110,1) 0%, rgba(89,9,121,1) 50%, rgba(0,20,255,1) 100%);
-		margin-top: 0.02rem;
-		height: 0.14rem;
-		margin-bottom: 0.12rem;
 	}
 	.block-type.heading-3>h3 {
 		display: flex;

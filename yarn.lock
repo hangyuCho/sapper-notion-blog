@@ -904,6 +904,11 @@
     "@babel/helper-validator-identifier" "^7.16.7"
     to-fast-properties "^2.0.0"
 
+"@codewithshin/svelte-utterances@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@codewithshin/svelte-utterances/-/svelte-utterances-0.2.2.tgz#f165b093ad58c40f790038f23094897418229216"
+  integrity sha512-yb/aDEwVMWbAxdoAYhTnUrwzme80v/ifr8z3vX6ssOabm4fqAh45nhtAA2OCWdGMx6jQai8nAXJ3EUYvF8Fq0w==
+
 "@jridgewell/resolve-uri@^3.0.3":
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/@jridgewell/resolve-uri/-/resolve-uri-3.0.6.tgz#4ac237f4dabc8dd93330386907b97591801f7352"
