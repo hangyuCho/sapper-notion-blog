@@ -36,4 +36,11 @@ export enum LanguageType {
     JavaScript = "javascript",
     TypeScript = "typescript",
     Xml = "xml",
+    Css = "css",
+}
+
+export enum ParagraphType {
+  Text = "text",
+  Equation = "equation",
+
 }

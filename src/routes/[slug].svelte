@@ -21,7 +21,7 @@
 </script>
 
 <script lang="ts">
-	import { BlockType } from "../enums";
+	import { BlockType, ParagraphType } from "../enums";
 	import TopCover from "../components/common/TopCover.svelte";
 	import Highlight from "svelte-highlight";
 	import monokaiSublime from "svelte-highlight/styles/monokai-sublime";
@@ -47,6 +47,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" >
 	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gamja+Flower&family=Stylish&family=Dongle:wght@300;400;700&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 	{@html monokaiSublime}
 </svelte:head>
 
@@ -91,7 +92,10 @@
 	{/if}
 	{#if item.type == BlockType.Paragraph}
 		<div class="block-type paragraph">
-			<p>{@html renderText(item.paragraph.rich_text)}</p>
+
+      {#if item.paragraph.rich_text.length > 0 && item.paragraph.rich_text != null }
+            <p>{@html renderText(item.paragraph.rich_text)}</p>
+      {/if}
 		</div>
 	{/if}
 	{#if item.type == BlockType.Table}

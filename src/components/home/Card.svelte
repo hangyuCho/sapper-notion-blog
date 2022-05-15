@@ -55,6 +55,7 @@
         display: flex;
         padding: 1rem;
         flex: 1;
+        justify-content: center;
     }
     .card {
         display: flex;
