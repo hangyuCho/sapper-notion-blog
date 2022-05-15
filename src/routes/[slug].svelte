@@ -350,7 +350,7 @@
 		padding-left: 1rem;
 	}
 	.block-type.image > img {
-		max-width: 20rem;
+		max-width: 80vw;
 		padding: 0.2rem 0rem;
 	}
 	.block-type.video .wrapper {
