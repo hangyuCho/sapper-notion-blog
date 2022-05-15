@@ -101,7 +101,6 @@ export const renderText = (arr_rich_text: any) => {
         }
         arrRichText.push(strText);
     });
-    {console.log(arrRichText.join(""));}
     return arrRichText.join("").replace(/\n/g, "");
 }
 
