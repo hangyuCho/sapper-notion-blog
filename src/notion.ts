@@ -80,8 +80,7 @@ export const renderText = (arr_rich_text: any) => {
           let { content, link } = rich_text.text;
           let { bold, italic, strikethrough, underline, code, color } = rich_text.annotations;
           let hasAnnotation = bold || italic || strikethrough || underline || code || color;
-          strText += hasAnnotation ? `
-          <span style="
+          strText += hasAnnotation ? `<span style="
             ${bold ? "font-weight: 800;" : ""}
             ${italic ? "font-style: italic;" : ""}
             ${strikethrough ? "" : ""}

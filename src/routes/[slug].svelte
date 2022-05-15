@@ -21,26 +21,21 @@
 </script>
 
 <script lang="ts">
-	import { BlockType, ParagraphType } from "../enums";
+	import { BlockType } from "../enums";
 	import TopCover from "../components/common/TopCover.svelte";
 	import Highlight from "svelte-highlight";
 	import monokaiSublime from "svelte-highlight/styles/monokai-sublime";
 	import { onMount } from 'svelte';
 	export let blocksWithChild: any;
 	export let page: any;
-	export let slug: any;
-	export let Comments: any;
-  export let theme: string = "github-light";
-  export let Utterances: any;
+	export let theme: string = "github-light";
+	export let Utterances: any;
 
 	onMount(async () => {
-		const module = await import('disqus-svelte');
-    const module2 = await import('@codewithshin/svelte-utterances');
-		Comments = module.default;
-		Utterances = module2.Utterances;
+		const module = await import('@codewithshin/svelte-utterances');
+		Utterances = module.Utterances;
 	});
 </script>
-
 <svelte:head>
 	<title>긍정코딩세상 Blog</title>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -285,12 +280,15 @@
 	.btn-circle.yellow { background-color: yellow; }
 	.btn-circle.green { background-color: green; }
 	.block-type.table {
+    display: table;
 		flex-direction: column;
+    width: 12rem;
 	}
 	.block-type.table>.row {
-		display: flex;
+		display: table-row;
 	}
 	.block-type.table>.row>.col {
+    display: table-cell;
 		border: 1px solid;
 		min-width: 3rem;
 		box-sizing: border-box;
