@@ -19,7 +19,9 @@
 
 <svelte:head>
 	<title>긍정코딩세상 Blog</title>
+  <!--
 	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  -->
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" >
 	<link href="https://fonts.googleapis.com/css2?family=Gamja+Flower&family=Cute+Font&family=Do+Hyeon&family=Stylish&display=swap" rel="stylesheet">
