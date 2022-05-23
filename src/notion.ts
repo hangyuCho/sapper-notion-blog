@@ -1,4 +1,11 @@
 import { Client } from "@notionhq/client"
+import type {
+    ListBlockChildrenResponse,
+  } from '@notionhq/client/build/src/api-endpoints.d'
+  export type blockWithChildren = ListBlockChildrenResponse['results'][number] & {
+    children?: blockWithChildren[]
+  }
+  
 import { typescript, java, javascript, xml, css } from "svelte-highlight/languages";
 import { LanguageType, ParagraphType } from "./enums"
 
@@ -28,24 +35,44 @@ export const getPage = async (pageId: string) => {
     return response;
 }
 
-export const getBlocks = async (blockId: string) => {
-    const blocks: any = [];
-    let cursor: string;
-    blockId = blockId || "";
-    while (true) {
-        const { results, next_cursor } = await notion.blocks.children.list({
-            start_cursor: cursor,
-            block_id: blockId,
-        });
-        blocks.push(...results);
-        if(!next_cursor) {
-            break;
-        }
-        cursor = next_cursor;
-    }
+//export const getBlocks = async (blockId: string) => {
+    //const blocks: any = [];
+    //let cursor: string;
+    //blockId = blockId || "";
+    //while (true) {
+        //const { results, next_cursor } = await notion.blocks.children.list({
+            //start_cursor: cursor,
+            //block_id: blockId,
+        //});
+        //blocks.push(...results);
+        //if(!next_cursor) {
+            //break;
+        //}
+        //cursor = next_cursor;
+    //}
 
-    return blocks;
-}
+    //return blocks;
+//}
+export const getBlocks = async (blockId: string) => {
+    const blocks: blockWithChildren[] = []
+    let cursor: undefined | string = undefined
+  
+    while (true) {
+      const blocksList = await notion.blocks.children.list({
+        start_cursor: cursor,
+        block_id: blockId,
+      })
+      blocks.push(...blocksList.results)
+  
+      const next_cursor = blocksList.next_cursor as string | null
+      if (!next_cursor) {
+        break
+      }
+      cursor = next_cursor
+    }
+    return blocks
+  }
+  
 
 export const getBlock = async(blockId: any) => {
     const response = await notion.blocks.children.list({
@@ -54,29 +81,43 @@ export const getBlock = async(blockId: any) => {
     return response.results;
 }
 
+export const appendBlocksWithChild = async(blocks: any, blockArray: []) => {
+    for (let block of blocks) {
+        let indent: number = 0;
+        block.indent = indent;
+        //console.time("appendBlock")
+        await appendChildBlock(blockArray, block, indent);
+        //console.timeEnd("appendBlock")
+    }
+    return blockArray;
+}
+export const appendChildBlock = async(blockArray: [], parentBlock: any, indent: number) => {
+    blockArray.push(parentBlock);
+    if(!parentBlock.has_children) return;
+    let blocks: any = await getBlock(parentBlock.id);
+    if (blocks.length < 1) { return; }
+    for (let childBlock of blocks) {
+        await appendBlock(blockArray, childBlock, indent);
+    }
+}
+
+export const appendBlock = async(blockArray: [], childBlock: any, indent: number) => {
+    indent++;
+    childBlock.indent = indent;
+    if (childBlock.has_children){
+        await appendChildBlock(blockArray, childBlock, indent);
+    } else {
+        blockArray.push(childBlock);
+    }
+}
+
 export const renderText = (arr_rich_text: any) => {
-
-  /*
-            <!--
-        {#each item.paragraph.rich_text as r_text}
-          {#if r_text != null }
-            {#if item.paragraph.rich_text[0] != null }
-            {console.log(r_text)}
-            <p>{@html renderText(r_text.plain_text)}</p>
-          {/if}
-          {:else}
-            <p>{@html renderText(item.paragraph.rich_text.plain_text)}</p>
-          {/if}
-        {/each}
-            -->
-*/
-
-  
     let arrRichText = [];
     arr_rich_text = arr_rich_text || [];
     arr_rich_text.forEach((rich_text: any) => {
         let strText = "";
         if (rich_text.type == ParagraphType.Text) {
+          //if (rich_text.text.content == 'indent-1') console.log(rich_text)
           let { content, link } = rich_text.text;
           let { bold, italic, strikethrough, underline, code, color } = rich_text.annotations;
           let hasAnnotation = bold || italic || strikethrough || underline || code || color;
@@ -86,8 +127,8 @@ export const renderText = (arr_rich_text: any) => {
             ${strikethrough ? "" : ""}
             ${underline ? "text-decoration: underline;" : ""}
             ${code ? "" : ""}
-            ${color ? "color: " + color + ";" : ""}
-          ">` : "";
+            ${color ? `color: ${color == 'default' ? '#000' : color};` : ""}
+          ">`.replace(/\s+/g, " ") : "";
           strText += content;
           let hasLink = link != null;
           if (hasLink) {

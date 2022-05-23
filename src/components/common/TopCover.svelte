@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let src: string;
+	export let slug: string = undefined;
 </script>
 <div class="top-cover" style="background-image: url({src});">
     <div class="top-cover-block"></div>
@@ -8,7 +9,7 @@
         <p>사람은 행복하기로 마음먹은 만큼 행복하다.</p>
         <p> - 에이브러험 링컨 - </p>
         <br/>
-        <a class="btn-move-to-post" rel="external" href="#content-start" >show posts</a>
+        <a class="btn-move-to-post" rel="external" href="{!slug ? "" : `/${slug}`}#content-start" >show posts</a>
     </div>
 </div>
 <div id="content-start"/>

@@ -32,6 +32,6 @@
 		display: flex;
 		flex-wrap: wrap;
 		color: rgb(150, 150, 150);
-		justify-content: flex-start;
+		width: 60rem;
 	}
 </style>

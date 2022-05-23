@@ -8,15 +8,6 @@
     function showSubNavModal(category: any) {
         jsonSubMenu = jsonMenu.filter((obj: any) => obj.category == category)
     }
-    function ctrlMenu() {
-		if (!open) {
-			open = true;
-			subNavModal.classList.remove('hide');
-		} else {
-			open = false;
-			subNavModal.classList.add('hide');
-		}
-    }
 </script>
 <div class="sub-menu">
     <div class="sub-menu-left">
@@ -26,12 +17,13 @@
     </div>
     <div class="sub-menu-right">
         <div class="search">search</div>
-        <div class:open class="menu-btn" bind:this={menuBtn} on:click={ ctrlMenu }>
+        <div class="menu-btn" bind:this={menuBtn} on:click={ () => {open = !open} }>
 			<div class="menu-btn-burger"></div>
 		</div>
     </div>
 </div>
-<div class="sub-nav-modal hide" bind:this={subNavModal}>
+{#if open}
+<div class="sub-nav-modal" bind:this={subNavModal}>
     <div class="sub-nav-left">
         <div class="post-nav-area">
         <div class="sub-nav">
@@ -74,6 +66,7 @@
     </div>
     <div class="sn-right"></div>
 </div>
+{/if}
 <style>
     .sub-menu,
     .sub-menu-left, 
