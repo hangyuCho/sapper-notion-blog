@@ -110,6 +110,7 @@
 		padding: 3rem 0rem;
 		font-family: SuncheonB, Dongle, Stylish, Black Han Sans, Do Hyeon, 'Courier New', Courier, monospace;
 		font-size: 1.2rem;
+    width: 100vw;
 
 	}
 	ul {
