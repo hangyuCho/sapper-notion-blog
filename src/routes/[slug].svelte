@@ -60,9 +60,6 @@
 </script>
 <svelte:head>
 	<title>긍정코딩세상 Blog</title>
-  <!--
-	<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  -->
 	<link rel="preconnec20remt" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" >
 	<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Do+Hyeon&family=Gamja+Flower&family=Stylish&family=Dongle:wght@300;400;700&display=swap" rel="stylesheet">
